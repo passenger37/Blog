@@ -1,0 +1,12 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/topic/vote.css' %}">
+<div class="vote">
+    <div class="upvote-click" data-topic={{topic.id}}>
+        <img src="{% static '/assets/upvote.png' %}" alt="">
+        <small class="upvote-count-{{topic.id}}">{{topic.upvote_set.count}}</small>
+    </div>
+    <div class="downvote-click" data-topic={{topic.id}}>
+        <img src="{% static '/assets/downvote.png' %}" alt="">
+        <small class="downvote-count-{{topic.id}}">{{topic.downvote_set.count}}</small>
+    </div> 
+</div>

@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block user %}
+
+<link rel="stylesheet" href="{% static 'css/topic/topics.css' %}">
+<divs class="topics">
+  <div class="topics_body">
+    <div class="entry">
+      <h1>{{topic}}</h1>
+        <div class="entry_body">
+          {{ topic.entry|linebreaks }}
+        </div>
+        <div class="entry_components">
+          <small>
+            <strong><a href="{% url 'accounts:profile' topic.owner_id %}">by {{ topic.owner }} </a></strong> <br>
+            <strong>{{ topic.date_added|date:'M d, Y H:i' }} </strong>
+          </small>
+          <small>
+            {% if user.is_authenticated and topic.owner.user == user %}
+              <a href="{% url 'topic:editentry' topic.id %}"><strong>Edit Entry</strong></a>
+            {% endif %}
+          </small>
+          <small class="comment-visible" data-topic={{topic.id}}><img src="{% static 'assets/comment.png' %}" alt=""></small>
+          {% include 'topic/vote.html' %}
+        </div>
+        <div class="entry-small-components">
+          <small>
+            {% if user.is_authenticated and topic.owner.user == user %}
+              <a href="{% url 'topic:editentry' topic.id %}"><strong>Edit Entry</strong></a>
+              {% else %}
+              <small>
+                <strong><a href="{% url 'accounts:profile' topic.owner_id %}">by {{ topic.owner }} </a></strong> <br>
+                <strong>{{ topic.date_added|date:'M d, Y H:i' }} </strong>
+              </small>
+            {% endif %}
+          </small>
+          <small class="comment-visible" data-topic={{topic.id}}><img src="{% static 'assets/comment.png' %}" alt=""width='25' height='25'></small>
+          {% include 'topic/vote.html' %}
+        </div>
+    </div> 
+  {% include 'topic/comments.html' %}
+  </div>
+</divs>
+{% endblock user %}

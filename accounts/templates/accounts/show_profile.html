@@ -1,0 +1,19 @@
+          {% extends 'base.html' %}
+{% load static %}
+
+{% block user %} 
+
+<link rel="stylesheet" href="{% static 'css/account/show_profile.css' %}">
+<div class="profilebody">
+    <h1>PROFILE</h1>
+    <div class="details_form">
+        <form action="{% url 'accounts:show_profile' %}" method="POST">
+            <div class="profile_user">
+                {{profile_form}}{% csrf_token %}
+                {{user_form}}{% csrf_token %}
+            </div>
+            <button  type='submit'> Save</button>
+        </form>
+    </div>
+
+{% endblock user %}  

@@ -1,0 +1,10 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/topic/search.css' %}">
+<div class="search-div">
+    <form action="{% url 'topic:search' %}" method="GET">
+        <div class="search_bar">
+            <input type="search" placeholder="Search" name="search">
+            <button type="submit"> Search </button>
+        </div>
+    </form>
+</div>

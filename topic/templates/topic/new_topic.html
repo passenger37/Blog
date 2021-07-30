@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block user %}
+{% include 'messages.html' %}
+
+<link rel="stylesheet" href="{% static '/css/topic/new_topic.css' %}">
+<div class="add_topic">
+  <h3>Add a new topic</h3>
+    <form action="{% url 'topic:newtopic'%}" method='post'class="form">
+        {{form}}{% csrf_token %}
+        <button name="submit" class="btn">add topic</button>
+    </form>
+</div>
+
+{% endblock user %}

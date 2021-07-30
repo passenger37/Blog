@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href={% static '/assets/icon.png' %} sizes="16x16" type="image/png"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Blogging</title>
+</head>
+<link rel="stylesheet" href="{% static '/css/base.css' %}">
+
+<body>
+  <nav class="main_nav">
+    <header class="main_nav_header">
+      <img src={% static '/assets/icon.png' %} width="60" 
+        height="60">
+      <h2>Blogging</h2>
+    </header>
+      {% comment %} Fabar {% endcomment %}
+      {% include 'nav/fabar.html' %}
+      {% comment %} for full website  think  {% endcomment %}
+      {% include 'nav/web.html' %}
+      {% comment %} for short screen {% endcomment %}
+      {% include 'nav/short.html' %}
+  </nav>
+
+  {% comment %}  Body  {% endcomment %}
+<div class="block-user">
+  {% block user %}
+        {% comment %} messages {% endcomment %}
+        {% include 'messages.html' %}
+        {% comment %} search {% endcomment %}
+        {% include 'topic/search.html' %}
+        {% comment %} All topic List {% endcomment %}
+        {% include 'topic/index.html' %}
+  {% endblock user %}
+</div>
+
+{% comment %} <<<<<<< pagination >>>>>>>> {% endcomment %}
+{% if page_obj %}
+    {% include 'topic/pagination.html' %}
+{% endif %} 
+
+</body >
+<footer>
+  <div class="footer-1">
+      <small>Anand Singh</small>
+      <small>anandsingh7571970002@gmail.com</small> <br/>
+      <small>"Still much more to do"</small>
+  </div>
+  <div class="footer-2">
+      <a href="linkedin.com/in/anand-singh-766109174"><i class="fa fa-linkedin" style="font-size:36px"></i></a> <br/>
+      <a href="https://github.com/passenger37"><i class="fa fa-github" style="font-size:36px"></i></a>
+  </div>
+</footer>
+{% include 'js.html' %}
+</html>

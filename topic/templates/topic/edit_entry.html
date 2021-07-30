@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block user %}
+<link rel="stylesheet" href="{% static 'css/topic/edit_entry.css' %}">
+<div class="edit_entry">
+	<h2><a href="{% url 'topic:topic' topic.id%}">{{topic}}</a></h2>
+	<h3>Edit Entry : </h3>
+	<form action="{% url 'topic:editentry' entry.id %}" method='POST'>{% csrf_token %}
+		{{ form.as_p }}
+		<button name='submit' class="btn">Save Changes</button>
+	</form>
+</div>
+
+{% endblock user %}

@@ -1,0 +1,43 @@
+.profilebody {
+    background-color: cadetblue;
+    padding:20px;
+    text-align:center
+}
+
+.profile_details{
+    /* display: grid;
+    grid-template-columns: 30% 70%; */
+    margin: 20px;
+}
+.details_info{
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.details_info >img {
+    clip-path: circle(50%);
+}
+
+.profilebody a >strong{
+    color:rgb(190, 30, 30);
+}
+
+.profile_all_topic{
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 30px;
+    background:linear-gradient(to right,rgba(255, 255, 255, 0.788),rgba(255, 255, 255, 0.233));
+    padding: 20px;
+    border-radius: 15px;
+}
+
+h3{
+    text-transform: uppercase;
+    color: black;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid black;
+  
+  }

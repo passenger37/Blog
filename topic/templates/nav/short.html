@@ -1,0 +1,16 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/topic/nav/short.css' %}">
+
+<div class='nav_list hide'>
+    <ul>
+      {% if user.is_authenticated  %}
+        <a href="{% url 'topic:index' %}" >Blogs</a>
+        <a href="{% url 'topic:topics' %}" >My Topics</a>
+        <a href="{% url 'accounts:profile' user.id %}" >{{user.username}}</a>
+        <a href="{% url 'accounts:logout' %}" ><small>Logout</small></a>
+        {% else %}
+        <a href="{% url 'topic:index' %}" >Blogs</a>
+        <a href="{% url 'accounts:login' %}" >Login</a>
+      {% endif %}
+    </ul> 
+  </div>

@@ -1,0 +1,26 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/topic/pagination.css' %}">
+
+<div class="pagination-page">
+    {% if page_obj.has_previous %}
+      <div class="page_prev">
+        <a class="prev btn btn-info" href="?page={{page_obj.previous_page_number}}">Prev</a>
+      </div>
+    {% endif %}
+    <div class="pages">
+      <ul>
+        {% for pg in page_obj.paginator.page_range %}
+          {% if page_obj.number == pg %}
+            <li><a href="?page={{pg}}" class="pages_selcted">{{pg}}</a></li>
+          {% else %}
+            <li><a href="?page={{pg}}" class="pages_all">{{pg}}</a></li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+    {% if page_obj.has_next %}
+      <div class="page_next">
+        <a class="next btn btn-info" href="?page={{page_obj.next_page_number}}">Next</a>
+      </div>
+    {% endif %}
+</div>

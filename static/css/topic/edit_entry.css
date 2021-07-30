@@ -1,0 +1,61 @@
+.edit_entry{
+    padding: 30px 20px;
+}
+
+.btn{
+    padding:5px;
+    position: relative;
+    margin-top: 20px;
+    width:90%;
+    padding:10px;
+    border-radius: 5px 5px;
+    cursor:pointer;
+    background-color:#3498db;
+    border:2px solid #3498db;
+    color:white;
+    display:block;
+  }
+.edit_entry textarea{
+    outline: none;
+    border:5px solid rgb(89, 143, 214);
+    width: 90%;
+    margin-top: 20px;
+    border-radius: 10px;
+    height: 80vh;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: 20px;
+}
+.edit_entry input{
+    display: block;
+    width: 90%;
+    font-size: 20px;
+    border-radius: 10px;
+    padding:5px;
+    border:5px solid rgb(89, 143, 214);
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+.edit_entry h2>a{
+    text-decoration:none;
+    background-color: rgb(22, 103, 141);
+    color:rgb(19, 8, 59);
+    box-shadow:0px 2px 10px rgba(0, 0, 0, 0.322);
+    padding: 5px 40px;
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+.edit_entry h3{
+    margin:20px 5px;
+    color: rgb(94, 63, 63);
+}
+
+.edit_entry input:focus{
+    outline: none;
+    border:5px solid rgb(13, 68, 141);
+}
+
+.edit_entry textarea:focus{
+    outline: none;
+    border:5px solid rgb(13, 68, 141);
+}

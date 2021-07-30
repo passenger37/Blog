@@ -1,0 +1,39 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block user %} 
+
+<link rel="stylesheet" href="{% static 'css/account/user.css' %}">
+<div class="userbody">
+    <div class='login_form'>
+        <form method="POST" class='form'>
+            <h2>Login</h2>
+            {% if login.errors %}
+                <div>
+                    {% for error in login.non_field_errors %}
+                        <div class="error_list">
+                            <small>{{ error|escape }}</small>
+                        </div>
+                    {% endfor %} 
+                </div> 
+            {% endif %}
+            {% if login.errors %}
+                <div>
+                    {% for error in login.non_field_errors %}
+                        <div class="error_list">
+                            <small>{{ error|escape }}</small>
+                        </div>
+                    {% endfor %} 
+                </div> 
+            {% endif %}
+
+            {{login.as_p}}{% csrf_token %}
+
+            <button class="btn">Login</button>
+            <a href="{% url 'accounts:register' %}" id="switchsignup">Create a Account !!</a>
+        </form>
+    </div>
+</div>
+
+{% endblock user %}

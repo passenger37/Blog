@@ -1,0 +1,39 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block user %} 
+
+<link rel="stylesheet" href="{% static 'css/account/profile.css' %}">
+<div class="profilebody">
+    <h1>PROFILE</h1>
+    <div class="profile_details">
+        <div class="details_info">
+          {% if profile_user.profile_img %}
+            <img src="{{profile_user.profile_img.url}}" alt="user profile" width="300" height="300">
+          {% else %}
+            <img src='{% static 'assets/avatar.png' %}' alt="user profile" width="300" height="300">
+          {% endif %}
+          <h1>{{profile_user.user}}</h1>
+          {% if profile_user.address %}
+            <small>{{profile_user.address}}</small>
+          {% endif %}
+        </div>
+        <div>
+            {% if profile_user.user == user %}
+                <h3><a href="{% url 'topic:newtopic' %}">Add new topic</a></h3>
+                <h3> <a href="{% url 'accounts:show_profile' %}"><strong>Edit Profile</strong></a></h3>
+            {% endif %}
+            <h3>ALL TOPICS</h3>
+            {% for topic in profile_user.topic_user.all  %}
+              <div class='profile_all_topic'>
+                  <h3>{{topic}}</h3>
+                  <a href="{% url 'topic:topic' topic.id %}"><small>{{topic.entry | truncatewords:"20"}}.... to be continued  </small></a>
+              </div>
+            {% empty %}
+                  <h2>Add a Topic !!</h2>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock user %}

@@ -1,0 +1,29 @@
+.all_topics{
+    text-align: center;
+    box-shadow:0px 2px 10px rgba(0, 0, 0, 0.322);
+    padding: 20px;
+    margin: 10px 20px 10px 20px;
+    border-radius: 10px;
+    border: 2px solid black;
+}
+.all_topics h3{
+  text-transform: uppercase;
+  color: black;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid black;
+
+}
+.all_topics_topic{
+  width: 100%;
+  margin-bottom: 30px;
+}
+.all_topics_components{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap-reverse;
+}
+.all_topics_topic > small > a {
+  color: rgb(139, 50, 15);
+}

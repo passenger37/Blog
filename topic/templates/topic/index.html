@@ -1,0 +1,24 @@
+{% load static %}
+<link rel="stylesheet" href="{% static '/css/topic/index.css' %}">
+
+
+{% if page_obj %}
+    {% for topic in page_obj  %}
+    <a href="{% url 'topic:topic' topic.id %}">
+        <div class="all_topics">
+            <div class="all_topics_topic">
+                <h3>{{topic}}</h3>
+                <small>{{topic.entry | truncatewords:"50"}}....<a href="{% url 'topic:topic' topic.id %}"> to be continued </a> </small>
+            </div>
+            <div  class="all_topics_components">
+                {% include 'topic/vote.html' %}
+                <a href="{% url 'accounts:profile' topic.owner_id %}"><strong> by {{ topic.owner }} </strong> </a>
+                <small class="comment-visible" data-topic={{topic.id}}><img src="{% static 'assets/comment.png' %}" alt=""></small>
+            </div>
+            {% include 'topic/comments.html' %}
+        </div>
+    <a/>
+    {% endfor %}
+{% else %}
+<h2>Not Found</h2>
+{% endif %}

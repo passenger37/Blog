@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block user %}
+
+<link rel="stylesheet" href="{% static 'css/topic/topic.css' %}">
+
+{% include 'messages.html' %}
+
+<div class="topic_body">
+    <h1>My Topics</h1>
+    {% for topic in page_obj %}
+            <a href="{% url 'topic:topic' topic.id %}">
+                <div class="topic">
+                    <h3>{{topic}}</h3>
+                    <small>
+                        {{topic.entry | truncatewords:"200"}} to be continued 
+                    </small>
+                    <div class="topic_components">
+                        <small>
+                                {{topic.date_added}}
+                        </small>
+                        <small>
+                            <a href="{% url 'topic:delete_topic' topic.id %}"><strong>Delete</strong></a>
+                        </small>
+                        <small>
+                            <a href="{% url 'topic:editentry' topic.id %}"><strong>Edit Entry</strong></a>
+                        </small>
+                        {% comment %} upvote/downvote {% endcomment %}
+                        <small class="comment-visible" data-topic={{topic.id}}><img src="{% static 'assets/comment.png' %}" alt=""></small>
+                        {% include 'topic/vote.html' %}
+                    </div>
+                    <div class="topic-small-components">
+                        <small>
+                            <a href="{% url 'topic:delete_topic' topic.id %}"><strong>Delete</strong></a>
+                        </small>
+                        <small>
+                            <a href="{% url 'topic:editentry' topic.id %}"><strong>Edit Entry</strong></a>
+                        </small>
+                        <small class="comment-visible" data-topic={{topic.id}}><img src="{% static 'assets/comment.png' %}" alt="" width='25' height='25'></small>
+                        {% include 'topic/vote.html' %}
+                    </div>
+                        {% include 'topic/comments.html' %}
+                    
+                </div>
+            </a>
+        {% empty %}
+            <h2>Add a Topic !!</h2>
+    {% endfor %}
+    <h3><a href="{% url 'topic:newtopic' %}">Add new topic</a></h3>
+</div>
+
+{% endblock user %}
+
+
+

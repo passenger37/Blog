@@ -1,0 +1,94 @@
+
+.userbody{
+    padding: 30px 20px;
+    font-family: 'Lato', sans-serif;
+    /* height: 500px; */
+    /* background-image: url('/static/assets/patternbackground.svg'); */
+}
+ .form{
+     margin: 20px 40px 0 40px;
+     background-color: white;
+     padding: 10px;
+     /* left: 10%; */
+     border-radius: 5px;
+     /* position: relative; */
+ }
+
+.form p{
+    padding: 10px;
+}
+.form p>label{
+    padding-bottom: 5px;
+    display: block;
+    color: grey;
+    font-size: 20px;
+}
+
+.form h2{
+    text-align: center;
+    color: rgb(88, 87, 87);
+}
+
+.form input{
+    display: block;
+    width: 100%;
+    font-size: 20px;
+    border-radius: 10px;
+    padding:5px;
+    border:5px solid rgb(89, 143, 214) ;
+    box-sizing: border-box;
+}
+
+.form p > input:focus{
+    /* border-bottom: blue 2px solid; */
+    outline: none;
+    border:  5px solid rgb(15, 63, 82);
+}
+
+.btn{
+    position: relative;
+    margin-top:20px;
+    width:100%;
+    padding:10px;
+    border-radius: 10px;
+    cursor:pointer;
+    background-color:#3498db;
+    border:2px solid #3498db;
+    color:white;
+    display:block;
+    box-sizing: border-box;
+}
+.form a{
+    text-decoration: none;
+    color: grey;
+}
+
+.helptext{
+    display: none;
+}
+
+.errorlist{
+    display: none;
+}
+
+.error_list{
+    padding: 5px;
+    color: rgb(163, 41, 41);
+    text-align: center; 
+}
+
+@media (min-width:700px) {
+
+    .form p>label{
+        padding-bottom: 10px;
+        font-size: 40px;
+    }
+    .form input{
+        font-size: 30px;
+        border-radius: 10px;
+        padding:10px;
+    }
+    .form h2{
+        font-size: 50px;
+    }
+}

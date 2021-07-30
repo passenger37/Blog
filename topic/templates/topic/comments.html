@@ -1,0 +1,22 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/topic/comments.css'%}">
+
+<div class="comment-body-{{topic.id}} hide">
+    <div class="comment-body">
+        {% if user.is_authenticated %}
+            <div class="comment-form">
+                <h6>Add Comment</h6>
+                <div class="form_body">
+                    <textarea class="form-textarea-{{topic.id}}" cols="100"></textarea>
+                    <button class="comment-btn" type='submit' data-topic={{topic.id}}>Comment</button>
+                </div>
+            </div>
+        {% endif %}
+        {% for comment in topic.comment_set.all  %}
+            <div class="comment-section">
+                <strong>{{comment.comment}}</strong>
+                <small>from :- {{comment.user.user}}</small>
+            </div>
+        {% endfor %}
+    </div>
+</div>
